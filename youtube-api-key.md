@@ -81,13 +81,14 @@ The `.env` file is **NOT** JavaScript. Do not use spaces, quotes or semicolons.
 The following is an example. This is not an authentic key, you will need to generate your own.
 
 ```
-REACT_APP_API_KEY=AIzaSyBLR3ihehfi3OXK-UYtucQQBkpnzaaL
+VITE_BSE_API_KEY=AIzaSyBLR3ihehfi3OXK-UYtucQQBkpnzaaL
 ```
 
 When you need to use your api key you will do something like this
 
 ```js
+const URL = import.meta.env.VITE_BASE_API_URL;
 fetch(
-  `https://youtube.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_API_KEY}`
+  `https://youtube.googleapis.com/youtube/v3/search?key=${URL}`
 );
 ```
