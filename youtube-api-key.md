@@ -61,28 +61,42 @@ You will need to go to the [Google Developer Console](https://console.developers
     ![receive-and-save-your-api-key](./assets/yt-api-key/yt-api-receive-and-save-api-key.png)
 
 14. You are done!
+15. 
+## Environment Variable Setup
+1. Create `.env` and `.env.development` files in your project's root directory:
 
-## Setting up the API Key
-
-In the root of your project (Same level as `package.json`), run the following command:
-
-- `touch .env`
-
-In the `.gitignore` file add a new line for the following entry:
+   ```bash
+   touch .env .env.development
+   ```
+2. In the `.gitignore` file add a new line for the following entry:
+We do not want this file to be uploaded to github. We want to keep our API key a secret. **[OR ELSE BAD THINGS CAN HAPPEN](https://www.theregister.com/2015/01/06/dev_blunder_shows_github_crawling_with_keyslurping_bots/)**
 
 ```
 .env
+.env.development
 ```
 
-We do not want this file to be uploaded to github. We want to keep our API key a secret. **[OR ELSE BAD THINGS CAN HAPPEN](https://www.theregister.com/2015/01/06/dev_blunder_shows_github_crawling_with_keyslurping_bots/)**
-
+3. In .env, define your environment variables (e.g., API URLs) that are common for both development and production builds:
 The `.env` file is **NOT** JavaScript. Do not use spaces, quotes or semicolons.
-
 The following is an example. This is not an authentic key, you will need to generate your own.
-
 ```
 VITE_BSE_API_KEY=AIzaSyBLR3ihehfi3OXK-UYtucQQBkpnzaaL
 ```
+4.  Access environment variables in your code using `import.meta.env`
+```const URL = import.meta.env.VITE_BASE_API_URL;
+fetch(`https://youtube.googleapis.com/youtube/v3/search?key=${URL}`);
+```
+
+***NOTE*** import.meta.env is a JavaScript feature that helps distinguish between development and production environments. It allows access to environment variables defined in files like .env and .env.production, embedding these values directly into your app's code during build. This enables your app to adapt its behavior based on the environment, enhancing security and simplifying code.
+
+
+
+
+
+
+
+
+
 
 When you need to use your api key you will do something like this
 
