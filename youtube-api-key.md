@@ -76,14 +76,15 @@ We do not want this file to be uploaded to github. We want to keep our API key a
 .env.development
 ```
 
-3. In .env, define your environment variables (e.g., API URLs) that are common for both development and production builds:
+3. In the `.env` files, define your environment variables (e.g., API URLs) that are common for both development and production builds:
 The `.env` file is **NOT** JavaScript. Do not use spaces, quotes or semicolons.
 The following is an example. This is not an authentic key, you will need to generate your own.
 ```
 VITE_BSE_API_KEY=AIzaSyBLR3ihehfi3OXK-UYtucQQBkpnzaaL
 ```
 4.  Access environment variables in your code using `import.meta.env`
-```const URL = import.meta.env.VITE_BASE_API_URL;
+```js
+const URL = import.meta.env.VITE_BASE_API_URL
 fetch(`https://youtube.googleapis.com/youtube/v3/search?key=${URL}`);
 ```
 
