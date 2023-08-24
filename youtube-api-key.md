@@ -80,7 +80,7 @@ We do not want this file to be uploaded to github. We want to keep our API key a
 The `.env` file is **NOT** JavaScript. Do not use spaces, quotes or semicolons.
 The following is an example. This is not an authentic key, you will need to generate your own.
 ```
-VITE_BSE_API_KEY=AIzaSyBLR3ihehfi3OXK-UYtucQQBkpnzaaL
+VITE_BASE_API_KEY=AIzaSyBLR3ihehfi3OXK-UYtucQQBkpnzaaL
 ```
 4.  Access environment variables in your code using `import.meta.env`
 ```js
